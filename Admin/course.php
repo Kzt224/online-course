@@ -1,6 +1,6 @@
 <?php
 require_once "templete/header.php";
-require_once "checkAuthStore/authCheck.php";
+require_once "../checkAuthStore/authCheck.php";
 checkAuth();
 ?>
 <!-- section for course page -->
