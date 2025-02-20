@@ -1,15 +1,27 @@
-<?php
-require_once "templete/header.php";
-?>
-<!-- login page section start -->
- <section>
-     <h2>Hello i am login</h2>
-     <form action="handle/handleLogin.php" method="POST">
-        <input type="email" placeholder="email" name="email"><br>
-        <input type="password" placeholder="password" name="password"><br>
-        <button type="submit">Login</button>
-     </form>
- </section>
- <!-- end login page section -->
-<?php
- require_once "templete/footer.php";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="style/form.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form class="form" action="" method="">
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" autocomplete="off">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" autocomplete="off">
+            </div>
+
+            <button type="button" class="btn">Login</button>
+            <a href="" class="signupbtn">Sign Up</a>
+        </form>
+    </div>
+</body>
+</html>
