@@ -32,7 +32,7 @@ function login($email,$password)
                 return ["success" => true,"message" => "Login successfully!"];
             }
     } catch (PDOException $e) {
-        return ['sussess' => false,"message" => $e->getMessagge()];
+        return ['sussess' => false,"message" => $e->getMessage()];
     }
 
 }
@@ -70,6 +70,6 @@ function Signup($email,$name,$password,$role = 0)
            return ["success" => false,"message" => "error on signup query"];
         }
     } catch (PDOException $e) {
-        return ['success' => false,"message" => $e->getMessate()];
+        return ['success' => false,"message" => $e->getMessage()];
     }
 }
