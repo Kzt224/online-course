@@ -1,1 +1,80 @@
 
+
+.logo{
+    left: 25%;
+    position: relative;
+    width: 75%;
+}
+.side-bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.upper{
+    width: 100%;
+    height: 12.6%;
+    align-items: center;
+    justify-content: center;
+    background-color: chocolate;
+}
+.text{
+    padding-top: 25px;
+    text-align: center;
+}
+.link li{
+    background: lightgray;
+}
+.link  li:hover{
+    cursor: pointer;
+    background: hsl(0, 4%, 15%);
+}
+.content{
+    left: 25%;
+    position: relative;
+    width: 74%;
+    height: 100%;
+}
+.content .cus-row{
+    display: flex;
+    align-items: center;
+    justify-content: centers;
+    margin-left: 5px;
+}
+.icon-contain{
+    display: flex;
+    width: 100%;
+    height: 130px;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+}
+.user-icon{
+    width: 50px;
+    height: 50px;
+}
+@media (max-width: 768px) { /* md breakpoint */
+    .logo{
+        left: 0;
+    }
+   .side-bar{
+     width: 0;
+     transition-duration: 0.2s;
+    }
+    .upper{
+        height: 12%;
+    }
+    .content{
+        left: 5%;
+        top: 5%;
+    }
+    .content .cus-row{
+        margin-left: 35px;
+    }
+  }
