@@ -1,4 +1,11 @@
 
+<?php
+  require_once "../database/checkAuthStore/authCheck.php";
+  require_once "../database/query/userQuery.php";
+  checkAuth();
+  $id = $_SESSION['user_id'];
+  $res =  getUserWithId($id);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +34,7 @@
                     <i class="fa-solid fa-gear"></i>
                     <span class="d-none d-md-inline flex-column">Setting</span>
                 </a>
-                <a href="" class="p-2 align-center rounded bg-dark text-decoration-none link-warning mx-2">
+                <a href='adminlogout.php' class="p-2 align-center rounded bg-dark text-decoration-none link-warning mx-2">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span class="d-none d-md-inline flex-column">Logout</span>
                 </a>
@@ -39,7 +46,12 @@
              <div class="upper">
                 <h5 class=" text-warning text">
                   <i class="fa-solid fa-robot fa-xl"></i>
-                  <span>Admin</span>
+                  <span>
+                    <?php
+                      echo($res->name);
+                    ?>
+                </span>
+
                 </h5>
              </div>
                <ul class="link  mx-auto p-1 list-unstyled align-center w-full mt-2 overflow-auto">

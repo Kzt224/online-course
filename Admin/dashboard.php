@@ -1,7 +1,6 @@
 <?php 
 require_once "templete/header.php";
-// require_once "../database/checkAuthStore/authCheck.php";
-// checkAuth();
+
 ?>
 
 <!-- content section for dashboards -->
