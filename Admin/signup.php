@@ -10,21 +10,21 @@
          <img src="./public/images/logo.png" alt="logo" style="width:80px;">
         </div>
         <h2>Register with us</h2>
-        <form class="form" action="" method="">
+        <form class="form" action="admincreate.php" method="POST">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" autocomplete="off">
+                <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name" autocomplete="off" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" autocomplete="off">
+                <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email" autocomplete="off" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" autocomplete="off">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" autocomplete="off" required>
             </div>
 
-            <button type="button" class="btn">Sign Up</button>
+            <button type="submit" class="btn">Sign Up</button>
             <p class="text-white fw-bold text-center">If you have an account?
                 <a href="login.php" class="d-inline text-decoration-none ">Login </a>
             </p>

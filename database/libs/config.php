@@ -6,7 +6,7 @@ $db_user = "root";
 $db_pass = '';
 
 try {
-    $conn = New PDO("sql:host=$host;dbname=$db_name;charset=utf8",$db_user,$db_pass);
+    $conn = new PDO("mysql:host=$host;dbname=$db_name;charset=utf8", $db_user, $db_pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     die("Database connection fail".$e->getMessage());
