@@ -2,85 +2,102 @@
 <?php
   require_once "../database/checkAuthStore/authCheck.php";
   require_once "../database/query/userQuery.php";
-  checkAuth();
-  $id = $_SESSION['user_id'];
-  $res =  getUserWithId($id);
+  $res = checkAuth();
+  $userId = $_SESSION['user_id'];
+  $user = getUserWithId($userId);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style/main.css" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/main.css" type="text/css">
+
     <title>Alpha Online Course</title>
 </head>
   <style>
-     body{
-    font-family: inherit;
+     body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(16,22,34,255);
+    overflow: hidden;
 }
   </style>
 <body>
-     <!-- navbar section -->
-     <nav class="navbar navbar-light nav-expend-lg sticky-top bg-secondary p-4 " style="position: relative;" >
-          <div class="container-fluid justify-between flex-1">
-             <div class="logo " id="hide_show">
-               <div class=" d-flex d-md-none btn">
-                <i class="fa-solid fa-bars fa-lg"></i>
-               </div>
-             </div>
-             <div class="flex flex-column">
-                <a href="" class="p-2 align-center rounded bg-dark text-decoration-none link-warning mx-2 p-2">
-                    <i class="fa-solid fa-gear"></i>
-                    <span class="d-none d-md-inline flex-column">Setting</span>
+    <!-- top nav bar -->
+   <div class="nav d-flex p-2 sticky-top top-nav" style="z-index:10000">
+          <div class="container-fluid d-flex flex-row justify-content-between align-items-center mt-2">
+            <div class="d-flex justify-content-center align-items-center py-2">
+                <h5 class="t-white d-flex m-0 p-0 fw-bold mx-0 mx-lg-3">AlphaCourse</h5>
+                <a href="/" class="text-decoration-none d-flex t-white m-0 p-0 mx-lg-3 mx-1  ">
+                    <p class="m-0 p-0 px-2">Home</p>
                 </a>
-                <a href='adminlogout.php' class="p-2 align-center rounded bg-dark text-decoration-none link-warning mx-2">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span class="d-none d-md-inline flex-column">Logout</span>
+                <a href="/" class="text-decoration-none d-flex t-white m-0 p-0 mx-1 mx-lg-2 ">
+                    <p class="m-0 p-0 px-2">Calender</p>
                 </a>
-             </div>
-          </div>
-        </nav>
-        <!-- end navbar section -->
-           <aside class="side-bar mt-0 bg-secondary" id="hide_div" >
-             <div class="upper">
-                <h5 class=" text-warning text">
-                  <i class="fa-solid fa-robot fa-xl"></i>
-                  <span>
-                    <?php
-                      echo($res->name);
-                    ?>
-                </span>
-
-                </h5>
-             </div>
-               <ul class="link  mx-auto p-1 list-unstyled align-center w-full mt-2 overflow-auto">
-                 <li class="rounded  p-2 mt-3">
-                    <a href="" class="text-decoration-none text-warning fw-bold">
-                      <i class="fa-solid fa-gauge fa-xl">
-                      </i>
-                      Dashboard
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <a href="/" class="text-decoration-none d-flex t-white m-0 p-0 px-2 ">
+                    <i class="fa-solid fa-sun"></i>
+                </a>
+                <a href="/" class="text-decoration-none d-flex t-white m-0 p-0 px-2 ">
+                    <i class="fa-solid fa-bell"></i>
+                </a>
+                <div class="dropdown">
+                    <a class=" dropdown-toggle t-white text-decoration-none px-1 dd-sty" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <?= $user->name ?>
                     </a>
-                 </li>
-                 <li class="rounded  p-2 mt-3">
-                  <a href="" class="text-decoration-none rounded w-100% text-success fw-bold">
-                    <i class="fa-solid fa-chalkboard-user fa-xl"></i>
-                    Course
+                  
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                      <li><a class="dropdown-item" href="setting.php">Setting</a></li>
+                      <li><a class="dropdown-item" href="adminlogout.php">Logout</a></li>
+                    </ul>
+                  </div>
+            </div>
+          </div>
+       </div>
+   <!--  end top nav -->
+   <!--  second nav -->
+   <div class="d-flex flex-row second-nav sticky-top">
+              <div class="container-fluid d-flex justify-content-between align-items-center p-4">
+                 <div class="d-flex left justify-content-center align-items-center">
+                    <i class="fa-solid fa-bars fa-lg t-white d-lg-none d-md-flex" type="button" id="hide-btn"></i>
+                     <h5 class="t-white mx-3 px-2 m-0 p-0">Course</h5>
+                 </div
+                 <div class="d-flex justify-content-center align-items-center ">
+                  <a href="/add" class="d-flex text-decoration-none t-white align-items-center justify-content-between tex">
+                      <i class="fa-solid fa-plus fa-lg t-white px-1" type="button"></i>
+                      <p class="m-0 p-0 px-2 ">Add Course</p>
                   </a>
-               </li>
-               <li class="rounded  p-2 mt-3">
-                <a href="" class="text-decoration-none text-danger fw-bold">
-                  <i class="fa-solid fa-money-bill fa-xl"></i>
-                  Payment
+              </div>
+                 
+              </div>
+          </div>
+   <!-- /* end second nav */ -->
+   <!-- /* sidebar */ -->
+   <div class="d-flex flex-column side-bar" id="side-bar">
+             <div class="d-flex flex-column  mt-5 p-3">
+                <a href="" class="d-flex text-decoration-none t-white mt-3 mx-3  rounded p-2
+                align-items-center justify-content-start">
+                    <i class="fa-solid fa-gauge px-2 fa-lg"></i>
+                    <p class="p-0 m-0 px-2">Dashboard</p>
                 </a>
-             </li>
-             <li class="rounded  p-2 mt-3">
-              <a href="" class="text-decoration-none text-primary fw-bold">
-                <i class="fa-solid fa-users fa-xl"></i>
-                Students
-              </a>
-           </li>
-               </ul>
-           </aside>
-
-    <!-- end nav bar section -->
+                <a href="" class="d-flex text-decoration-none t-white mt-3 mx-3  rounded p-2
+                align-items-center justify-content-start">
+                    <i class="fa-solid fa-chalkboard-user px-2 fa-lg"></i>
+                    <p class="p-0 m-0 px-2">Coure</p>
+                </a>
+                <a href="" class="d-flex text-decoration-none t-white mt-3 mx-3  rounded p-2
+                align-items-center justify-content-start">
+                    <i class="fa-solid fa-users px-2 fa-lg"></i>
+                    <p class="p-0 m-0 px-2">Classes</p>
+                </a>
+                <a href="" class="d-flex text-decoration-none t-white mt-3 mx-3  rounded p-2
+                align-items-center justify-content-start">
+                     <i class="fa-solid fa-money-bill-1-wave fa-lg px-2"></i>
+                     <p class="p-0 m-0 px-2">Payment</p>
+                </a>
+             </div>
+         </div>
+   <!-- /* end sidebar */ -->
