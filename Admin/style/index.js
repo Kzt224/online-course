@@ -1,23 +1,23 @@
+var button = document.getElementById("hide-btn");
+var side_bar = document.getElementById("side-bar");
 
-var hide_btn = document.getElementById("hide_show");
-var hide_ele = document.getElementById("hide_div");
 
-hide_btn.addEventListener("click",(e) => {
-  hide_ele.style.width = "75%";
-  e.stopPropagation();
+button.addEventListener("click",(e) => {
+    side_bar.style.left = "0";
 })
 document.addEventListener("click",(e) => {
-  if(window.innerWidth < 1024){
-    if(!hide_ele.contains(e.target) && !hide_btn.contains(e.target)){
-      hide_ele.style.width = "0";
+    if(window.innerWidth < 1024){
+        if(!side_bar.contains(e.target) && !button.contains(e.target)){
+            side_bar.style.left = "-500px";
+        }
     }
-  }
-});
-window.addEventListener("resize",() => {
-   if(window.innerWidth >= 1024){
-     hide_ele.style.width = "25%"
-   }else{
-     hide_ele.style.width = "0"
-   }
-});
+})
 
+
+window.addEventListener("resize",() => {
+  if(window.innerWidth >= 1024){
+    side_bar.style.left = "0";
+  }else{
+    side_bar.style.left = "-500px"
+  }
+})

@@ -1,80 +1,138 @@
+:root {
+    --black: rgba(15,22,34,255);
+    --secondary: rgba(27,35,46,255);
+    --white:  rgba(255, 255, 255, 0.769);;
+    --green: rgba(119,189,149,255);
+    --blue: rgb(37, 150, 190);
+    --red: rgba(226,96,106,255);
+    --third: rgba(51,52,129,255);
+    --hov-c: rgba(49,57,70,255);
+  }
+
+.t-white{
+    color: var(--white);
+}
+.t-green{
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px var(--green);
+}
+.t-green:hover{
+    color: rgb(6, 96, 6);
+}
+.t-blue{
+    color: var(--third);
+    border: 1px solid var(--third);
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px var(--third);
+}
+.t-blue:hover{
+    color: rgb(43, 43, 246);
+}
+.t-red{
+    color: var(--red);
+    border: 1px solid var(--red);
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px var(--red);
+}
+.t-red:hover{
+    color: red;
+}
+.tex {
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    padding: 2px;
+    background-color: var(--blue);
+    
+}
+.bg-color{
+    background-color: var(--secondary);
+}
 
 
-.logo{
+.second-nav{
+    position: fixed;
+    background-color: var(--secondary);
+    top: 64px;
     left: 25%;
-    position: relative;
     width: 75%;
 }
+.foot{
+    background-color:  var(--secondary);
+    width: 100%;
+    height: 10%;
+}
+
+.tex:hover{
+    color: white;
+}
+
+
 .side-bar{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    z-index: 10000;
-    justify-content: center;
-    align-items: center;
+    position: fixed;
+    overflow: auto;
     width: 25%;
-    box-sizing: border-box;
-    overflow-y: auto;
+    top: 64px;
+    height: 100vh;
+    background-color: var(--secondary);
 }
-.upper{
-    width: 100%;
-    height: 12.6%;
-    align-items: center;
-    justify-content: center;
-    background-color: chocolate;
+.side-bar a:hover{
+   background-color: var(--hov-c);
+   color: var(--white);
 }
-.text{
-    padding-top: 25px;
-    text-align: center;
-}
-.link li{
-    background: lightgray;
-}
-.link  li:hover{
-    cursor: pointer;
-    background: hsl(0, 4%, 15%);
-}
+
+/* from content */
 .content{
+    position: absolute;
     left: 25%;
-    position: relative;
-    width: 74%;
-    height: 100%;
+    width: 75%;
+    top: 20%;
+    height: 500px;
+    overflow: auto;
 }
-.content .cus-row{
-    display: flex;
-    align-items: center;
-    justify-content: centers;
-    margin-left: 5px;
+.content-container{
+    border: 1px solid transparent;
+    background-color: var(--secondary);
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px var(--white);
+    margin-bottom: 150px;
 }
-.icon-contain{
-    display: flex;
-    width: 100%;
-    height: 130px;
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
+.inner-container{
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.28);
 }
-.user-icon{
-    width: 50px;
-    height: 50px;
+.rig{
+    border: 1px solid transparent;
+    background-color: var(--black);
+    border-radius: 50px;
 }
-@media (max-width: 768px) { /* md breakpoint */
-    .logo{
+.rig p:hover{
+    color: white;
+}
+/* end content */
+
+@media (max-width: 1024px) {
+    .side-bar{
+        left: -1000px;
+        width:50%;
+        transition-duration: 0.3s;
+        z-index: 100000;
+    }
+    .second-nav{
         left: 0;
-    }
-   .side-bar{
-     width: 0;
-     transition-duration: 0.2s;
-    }
-    .upper{
-        height: 12%;
+        width: 100%;
     }
     .content{
         left: 5%;
-        top: 5%;
+        width: 100%;
+        height: 100vh;
     }
-    .content .cus-row{
-        margin-left: 35px;
+    .content-container{
+        margin-bottom: 300px;
     }
-  }
+    .foot{
+        height: 100px;
+    }
+}
