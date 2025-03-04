@@ -2,7 +2,7 @@
      <!-- footer section -->
        <div class="d-flex justify-content-center align-items-center fixed-bottom foot">
           <footer class="d-flex justify-content-center align-items-center">
-            <p class="d-flex m-0 p-0 t-white"> <?= date("Y") ?> Copyright by Time technology</p>
+            <p class="d-flex m-0 p-0 t-white"><?= date("Y") ?>&copy; Copyright by Alpha Online Class</p>
           </footer>
         </div>
          <!-- end footer section -->

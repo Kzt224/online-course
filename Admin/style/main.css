@@ -81,6 +81,10 @@
    background-color: var(--hov-c);
    color: var(--white);
 }
+.side-bar a:active{
+    background-color: black;
+}
+
 
 /* from content */
 .content{

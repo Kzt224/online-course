@@ -1,5 +1,5 @@
 <?php
-require_once "../database/libs/config.php";
+$config = require_once "../database/libs/config.php";
 
 function getUser() {
     global $conn;
